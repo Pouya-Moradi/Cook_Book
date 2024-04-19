@@ -6,15 +6,22 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.cookbook.data.FoodDataProvider
+import com.example.cookbook.data.db.CookDataBase
+import com.example.cookbook.ui.screen.FoodCategoryScreen
 import com.example.cookbook.ui.theme.CookBookTheme
 
 class MainActivity : ComponentActivity() {
+    private lateinit var cookDataBase: CookDataBase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        cookDataBase = CookDataBase.getInstance(this.applicationContext)
+
+        if (cookDataBase.foodDao().getAllFoods().isEmpty())
+            cookDataBase.foodDao().insertAllFoods(FoodDataProvider.foods)
+
         setContent {
             CookBookTheme {
                 // A surface container using the 'background' color from the theme
@@ -22,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    FoodCategoryScreen()
                 }
             }
         }
