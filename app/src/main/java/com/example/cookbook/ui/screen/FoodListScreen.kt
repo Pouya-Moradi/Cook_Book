@@ -1,21 +1,19 @@
 package com.example.cookbook.ui.screen
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,12 +25,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.cookbook.data.FoodDataProvider
+import com.example.cookbook.data.model.Food
 import com.example.cookbook.data.model.FoodCategory
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FoodCategoryScreen(
+fun FoodListScreen(
     modifier: Modifier = Modifier,
-    foodCategories: List<FoodCategory> = FoodDataProvider.foodCategories
+    foodCategory: FoodCategory = FoodDataProvider.foodCategories[0],
+    foods: List<Food> = FoodDataProvider.foods
 ) {
     Surface(modifier = modifier
         .fillMaxSize()
@@ -41,15 +42,14 @@ fun FoodCategoryScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "انواع غذا",
+                text = foodCategory.name,
                 style = MaterialTheme.typography.displaySmall
             )
+            SearchBar(query = "جستجو", onQueryChange = {}, onSearch = {}, active = false, onActiveChange = {}) {
+            }
             LazyColumn {
-                items(foodCategories) { foodCategory ->
-                    FoodCategoryItem(
-                        modifier = Modifier.padding(horizontal = 8.dp),
-                        foodCategory = foodCategory
-                    )
+                items(foods) { food ->
+                    FoodListItem(food = food, modifier = Modifier.padding(horizontal = 8.dp))
                 }
             }
         }
@@ -57,9 +57,9 @@ fun FoodCategoryScreen(
 }
 
 @Composable
-private fun FoodCategoryItem(
-    modifier: Modifier = Modifier,
-    foodCategory: FoodCategory = FoodDataProvider.foodCategories[0]
+private fun FoodListItem(
+    food: Food,
+    modifier: Modifier = Modifier
 ) {
     Surface(
         modifier = modifier
@@ -75,7 +75,7 @@ private fun FoodCategoryItem(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = foodCategory.name,
+                text = food.name,
                 modifier = Modifier.weight(1f),
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onTertiaryContainer,
@@ -83,7 +83,7 @@ private fun FoodCategoryItem(
             )
             AsyncImage(
                 modifier = Modifier.weight(1f),
-                model = foodCategory.imageUrl,
+                model = food.imageUrl,
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds
             )
@@ -93,12 +93,6 @@ private fun FoodCategoryItem(
 
 @Preview
 @Composable
-private fun FoodCategoryItemPreview() {
-    FoodCategoryItem()
-}
-
-@Preview
-@Composable
-private fun FoodCategoryPreview() {
-    FoodCategoryScreen()
+private fun FoodScreenPreview() {
+    FoodListScreen()
 }

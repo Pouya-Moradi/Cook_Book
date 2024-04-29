@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.cookbook.data.FoodDataProvider
 import com.example.cookbook.data.db.CookDataBase
-import com.example.cookbook.ui.screen.FoodCategoryScreen
+import com.example.cookbook.ui.screen.FoodScreen
 import com.example.cookbook.ui.theme.CookBookTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FoodCategoryScreen()
+                    FoodScreen(food = FoodDataProvider.foods[0])
                 }
             }
         }
