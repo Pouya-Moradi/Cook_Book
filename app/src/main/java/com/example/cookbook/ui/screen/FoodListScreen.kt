@@ -1,6 +1,7 @@
 package com.example.cookbook.ui.screen
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,20 +22,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.cookbook.data.FoodDataProvider
 import com.example.cookbook.data.model.Food
-import com.example.cookbook.data.model.FoodCategory
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FoodListScreen(
     modifier: Modifier = Modifier,
-    foodCategory: FoodCategory = FoodDataProvider.foodCategories[0],
-    foods: List<Food> = FoodDataProvider.foods
+    foodCategoryId: Int,
+    foods: List<Food>,
+    onFoodItemClick: (Int) -> Unit
 ) {
+    val foodCategory = FoodDataProvider.foodCategories.find { foodCategory -> foodCategory.id == foodCategoryId }
     Surface(modifier = modifier
         .fillMaxSize()
         .padding(12.dp)) {
@@ -42,14 +42,17 @@ fun FoodListScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = foodCategory.name,
+                text = foodCategory!!.name,
                 style = MaterialTheme.typography.displaySmall
             )
-            SearchBar(query = "جستجو", onQueryChange = {}, onSearch = {}, active = false, onActiveChange = {}) {
-            }
+
             LazyColumn {
-                items(foods) { food ->
-                    FoodListItem(food = food, modifier = Modifier.padding(horizontal = 8.dp))
+                items(foods, key = { food -> food.id }) { food ->
+                    FoodListItem(
+                        food = food,
+                        modifier = Modifier.padding(horizontal = 8.dp),
+                        onFoodItemClick
+                    )
                 }
             }
         }
@@ -59,13 +62,17 @@ fun FoodListScreen(
 @Composable
 private fun FoodListItem(
     food: Food,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onFoodItemClick: (Int) -> Unit
 ) {
     Surface(
         modifier = modifier
             .fillMaxWidth()
             .height(120.dp)
-            .padding(vertical = 4.dp),
+            .padding(vertical = 4.dp)
+            .clickable {
+                onFoodItemClick(food.id)
+            },
         shape = RoundedCornerShape(4.dp),
         border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),
         color = MaterialTheme.colorScheme.tertiaryContainer
@@ -89,10 +96,4 @@ private fun FoodListItem(
             )
         }
     }
-}
-
-@Preview
-@Composable
-private fun FoodScreenPreview() {
-    FoodListScreen()
 }

@@ -9,18 +9,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.cookbook.data.FoodDataProvider
 import com.example.cookbook.data.db.CookDataBase
+import com.example.cookbook.ui.navigation.FoodNavHost
 import com.example.cookbook.ui.screen.FoodScreen
 import com.example.cookbook.ui.theme.CookBookTheme
 
 class MainActivity : ComponentActivity() {
-    private lateinit var cookDataBase: CookDataBase
+    //private lateinit var cookDataBase: CookDataBase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        cookDataBase = CookDataBase.getInstance(this.applicationContext)
+        /*cookDataBase = CookDataBase.getInstance(this.applicationContext)
 
         if (cookDataBase.foodDao().getAllFoods().isEmpty())
-            cookDataBase.foodDao().insertAllFoods(FoodDataProvider.foods)
+            cookDataBase.foodDao().insertAllFoods(FoodDataProvider.foods)*/
 
         setContent {
             CookBookTheme {
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FoodScreen(food = FoodDataProvider.foods[0])
+                    FoodNavHost()
                 }
             }
         }

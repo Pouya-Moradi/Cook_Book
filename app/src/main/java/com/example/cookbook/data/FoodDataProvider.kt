@@ -42,27 +42,63 @@ object FoodDataProvider {
             recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
         ),
         Food(
-            name = "قرمه سبزی",
-            foodCategoryId = 1,
-            imageUrl = "https://chishi.ir/wp-content/uploads/2019/10/ghorme-sabzi.jpg",
+            name = "بیف استروگانف",
+            foodCategoryId = 2,
+            imageUrl = "https://chishi.ir/wp-content/uploads/2020/01/bif-esteraganof.jpg",
             recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
         ),
         Food(
-            name = "قرمه سبزی",
-            foodCategoryId = 1,
-            imageUrl = "https://chishi.ir/wp-content/uploads/2019/10/ghorme-sabzi.jpg",
+            name = "بیف استروگانف",
+            foodCategoryId = 2,
+            imageUrl = "https://chishi.ir/wp-content/uploads/2020/01/bif-esteraganof.jpg",
             recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
         ),
         Food(
-            name = "قرمه سبزی",
-            foodCategoryId = 1,
-            imageUrl = "https://chishi.ir/wp-content/uploads/2019/10/ghorme-sabzi.jpg",
+            name = "بیف استروگانف",
+            foodCategoryId = 2,
+            imageUrl = "https://chishi.ir/wp-content/uploads/2020/01/bif-esteraganof.jpg",
             recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
         ),
         Food(
-            name = "قرمه سبزی",
-            foodCategoryId = 1,
-            imageUrl = "https://chishi.ir/wp-content/uploads/2019/10/ghorme-sabzi.jpg",
+            name = "بیف استروگانف",
+            foodCategoryId = 2,
+            imageUrl = "https://chishi.ir/wp-content/uploads/2020/01/bif-esteraganof.jpg",
+            recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+        ),
+        Food(
+            name = "بیف استروگانف",
+            foodCategoryId = 2,
+            imageUrl = "https://chishi.ir/wp-content/uploads/2020/01/bif-esteraganof.jpg",
+            recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+        ),
+        Food(
+            name = "سوشی",
+            foodCategoryId = 3,
+            imageUrl = "https://www.ghafaridiet.com/upload/article/1707428002.jpg",
+            recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+        ),
+        Food(
+            name = "سوشی",
+            foodCategoryId = 3,
+            imageUrl = "https://www.ghafaridiet.com/upload/article/1707428002.jpg",
+            recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+        ),
+        Food(
+            name = "سوشی",
+            foodCategoryId = 3,
+            imageUrl = "https://www.ghafaridiet.com/upload/article/1707428002.jpg",
+            recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+        ),
+        Food(
+            name = "سوشی",
+            foodCategoryId = 3,
+            imageUrl = "https://www.ghafaridiet.com/upload/article/1707428002.jpg",
+            recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+        ),
+        Food(
+            name = "سوشی",
+            foodCategoryId = 3,
+            imageUrl = "https://www.ghafaridiet.com/upload/article/1707428002.jpg",
             recipe = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
         ),
     )
