@@ -1,6 +1,9 @@
 package com.example.cookbook.ui.screen
 
+//import android.graphics.Color
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,6 +28,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextAlign
@@ -51,9 +56,13 @@ fun FoodCategoryScreen(
     onActiveChange: (Boolean) -> Unit
 ) {
     Surface(modifier = modifier
-        .fillMaxSize()
-        .padding(12.dp)) {
+        .fillMaxSize())
+        {
         Column(
+            Modifier
+                .background(color = Color(0xFFFFEBB2))
+                .padding(15.dp),
+
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -77,10 +86,12 @@ fun FoodCategoryScreen(
                         Text(text = "جستجو...")
                     }
                 ) {
+
                     LazyColumn {
                         items(searchedFoods) { food ->
                             Surface(
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier
+                                    .fillMaxWidth()
                                     .clickable {
                                         onSearchedFoodClick(food)
                                     }
@@ -107,7 +118,7 @@ fun FoodCategoryScreen(
     }
 }
 
-@Composable
+/*@Composable
 private fun FoodCategoryItem(
     modifier: Modifier = Modifier,
     foodCategory: FoodCategory = FoodDataProvider.foodCategories[0],
@@ -142,9 +153,47 @@ private fun FoodCategoryItem(
             )
         }
     }
+}*/
+
+@Composable
+private fun FoodCategoryItem(
+    modifier: Modifier = Modifier,
+    foodCategory: FoodCategory = FoodDataProvider.foodCategories[0],
+    onFoodCategoryClick: (Int) -> Unit
+) {
+    Surface(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(120.dp)
+            .padding(vertical = 4.dp)
+            //.border(BorderStroke(2.dp, MaterialTheme.colorScheme.primary)) // اعمال stroke
+            .clip(RoundedCornerShape(25)) // گرد کردن دورها
+            .clickable { onFoodCategoryClick(foodCategory.id) }, // کلیک پذیر کردن
+        color = Color()
+    )
+
+
+    {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = foodCategory.name,
+                modifier = Modifier.weight(1f),
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
+                style = MaterialTheme.typography.titleLarge
+            )
+            AsyncImage(
+                modifier = Modifier.weight(1f),
+                model = foodCategory.imageUrl,
+                contentDescription = null,
+                contentScale = ContentScale.FillBounds
+            )
+        }
+    }
 }
-
-
 
 @Preview
 @Composable
